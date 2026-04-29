@@ -14,9 +14,14 @@ config/name="GEQO Demo"
 config/features=PackedStringArray("4.6", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+BeehaveGlobalMetrics="*uid://c3ktl6ontsdt7"
+BeehaveGlobalDebugger="*uid://bl3ma400hpvsh"
+
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/geqo/plugin.cfg")
+enabled=PackedStringArray("res://addons/beehave/plugin.cfg", "res://addons/geqo/plugin.cfg")
 
 [physics]
 
