@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://bfejxpbdk5q88"]
+
+[ext_resource type="Script" uid="uid://f0obt5ccbjmn" path="res://entities/arm_camera.gd" id="1_hhnbl"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hhnbl"]
+
+[node name="ArmCamera" type="SpringArm3D" unique_id=1611289315]
+shape = SubResource("SphereShape3D_hhnbl")
+spring_length = 5.0
+script = ExtResource("1_hhnbl")
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1971894154]
