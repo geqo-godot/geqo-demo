@@ -1,0 +1,16 @@
+[gd_resource type="ShaderMaterial" format=3 uid="uid://dhdn2y2nyiy7"]
+
+[ext_resource type="Shader" uid="uid://bb8afwy1j3c07" path="res://assets/shaders/interact_outline.gdshader" id="1_pqyfj"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_pqyfj"]
+transparency = 1
+albedo_color = Color(0, 0, 0, 0.078431375)
+emission_enabled = true
+emission = Color(0.78431374, 0.65882355, 0.44313726, 1)
+
+[resource]
+render_priority = 0
+next_pass = SubResource("StandardMaterial3D_pqyfj")
+shader = ExtResource("1_pqyfj")
+shader_parameter/outline_color = Color(1, 1, 1, 1)
+shader_parameter/outline_width = 5.0

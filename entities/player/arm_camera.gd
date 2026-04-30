@@ -1,9 +1,13 @@
 extends SpringArm3D
 @export var target: Node3D
+@export var decay: float = 30.0
 
-func _physics_process(_delta: float) -> void:
-	if target:
-		global_position = target.global_position + Vector3.UP * 2
+func _physics_process(delta: float) -> void:
+	global_transform = global_transform.interpolate_with(
+		target.global_transform,
+		1.0 - exp(-decay * delta)
+	)
+
 
 func _input(event: InputEvent) -> void:
 	if event is InputEventMouseButton:

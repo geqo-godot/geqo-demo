@@ -1,23 +1,34 @@
 [gd_scene format=3 uid="uid://c4ent8xvcyh2w"]
 
 [ext_resource type="Script" uid="uid://dahvby0kgailt" path="res://entities/player/player.gd" id="1_symyc"]
+[ext_resource type="PackedScene" uid="uid://bfejxpbdk5q88" path="res://entities/player/arm_camera.tscn" id="2_abrql"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_abrql"]
 
 [sub_resource type="CapsuleMesh" id="CapsuleMesh_symyc"]
 
 [sub_resource type="BoxMesh" id="BoxMesh_symyc"]
 size = Vector3(0.42, 0.35, 0.42)
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_abrql"]
-
-[node name="Player" type="CharacterBody3D" unique_id=63577024]
+[node name="Player" type="CharacterBody3D" unique_id=63577024 groups=["player"]]
+collision_layer = 2
 script = ExtResource("1_symyc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1010177936]
-mesh = SubResource("CapsuleMesh_symyc")
-
-[node name="MeshInstance3D" type="MeshInstance3D" parent="MeshInstance3D" unique_id=2058732345]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37088484, -0.5584666)
-mesh = SubResource("BoxMesh_symyc")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=1861601932]
 shape = SubResource("CapsuleShape3D_abrql")
+
+[node name="Body" type="Node3D" parent="." unique_id=1236074763]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1010177936]
+mesh = SubResource("CapsuleMesh_symyc")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Body/MeshInstance3D" unique_id=2058732345]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37088484, -0.5584666)
+mesh = SubResource("BoxMesh_symyc")
+
+[node name="HorizontalPivot" type="Node3D" parent="." unique_id=1611498028]
+
+[node name="VerticalPivot" type="Node3D" parent="HorizontalPivot" unique_id=1026335448]
+
+[node name="ArmCamera" parent="." unique_id=1611289315 node_paths=PackedStringArray("target") instance=ExtResource("2_abrql")]
+target = NodePath("../HorizontalPivot/VerticalPivot")
