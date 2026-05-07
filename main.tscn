@@ -3,7 +3,8 @@
 [ext_resource type="Material" uid="uid://bodmuf3vf6aux" path="res://assets/textures/greybox_material.tres" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4ent8xvcyh2w" path="res://entities/player/player.tscn" id="2_0xm2m"]
 [ext_resource type="PackedScene" uid="uid://ciijtejnje05e" path="res://entities/door/door.tscn" id="3_1bvp3"]
-[ext_resource type="PackedScene" uid="uid://nvso64245ltb" path="res://examples/3d/entities/enemy/enemy.tscn" id="4_1bvp3"]
+[ext_resource type="PackedScene" uid="uid://b012nkhhqv6o3" path="res://entities/enemy/querier_enemy.tscn" id="4_lquwl"]
+[ext_resource type="PackedScene" uid="uid://d4eog570yu3v8" path="res://entities/enemy/line_of_sight_query.tscn" id="5_7mycd"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -126,5 +127,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -35)
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.698592, 3.7933989, 3.4622526)
 text = "Where the teleport dashboard will be"
 
-[node name="Enemy" parent="." unique_id=1060190614 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9469047, 1.9384389, -28.799637)
+[node name="QuerierEnemy" parent="." unique_id=1625073531 node_paths=PackedStringArray("env_query") instance=ExtResource("4_lquwl")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5279121, -19.270891)
+env_query = NodePath("LineOfSightQuery")
+
+[node name="LineOfSightQuery" parent="QuerierEnemy" unique_id=41051657 node_paths=PackedStringArray("querier") instance=ExtResource("5_7mycd")]
+querier = NodePath("..")

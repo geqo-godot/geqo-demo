@@ -4,12 +4,12 @@ const JUMP_VELOCITY = 4
 const SPEED = 500
 
 enum State {IDLE, WALKING}
+@export var env_query: EnvironmentQuery3D
 
 var current_state: State = State.IDLE
 var final_target: Vector3
 var current_target
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
-@onready var env_query: EnvironmentQuery3D
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("request_query"):
