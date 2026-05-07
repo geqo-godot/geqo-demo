@@ -2,6 +2,7 @@
 
 [ext_resource type="Material" uid="uid://bodmuf3vf6aux" path="res://assets/textures/greybox_material.tres" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4ent8xvcyh2w" path="res://entities/player/player.tscn" id="2_0xm2m"]
+[ext_resource type="PackedScene" uid="uid://ciijtejnje05e" path="res://entities/door/door.tscn" id="3_1bvp3"]
 [ext_resource type="PackedScene" uid="uid://nvso64245ltb" path="res://examples/3d/entities/enemy/enemy.tscn" id="4_1bvp3"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
@@ -18,8 +19,9 @@ tonemap_mode = 2
 glow_enabled = true
 
 [sub_resource type="NavigationMesh" id="NavigationMesh_h2yge"]
-vertices = PackedVector3Array(-1.75, 0.5, -35, 2, 0.5, -35, 2, 0.5, -35.75, -1.75, 0.5, -35.75, 2.75, 0.5, -36.5, 9, 0.5, -36.5, 9, 0.5, -48.5, -2.5, 0.5, -36.5, -9, 0.5, -48.5, -9, 0.5, -36.5, -1.75, 0.5, -34.25, 2, 0.5, -34, -2.75, 0.5, -33.25, -7.75, 0.5, -33.25, -7.75, 0.5, -29, -0.5, 0.5, -29, 0.25, 0.5, -28, 3, 0.5, -33.25, -0.75, 0.5, -25.75, 0.25, 0.5, -23.5, 0.75, 0.5, -24, 0.25, 0.5, -26.5, 8, 0.5, -24, 8, 0.5, -33.25, -1.75, 0.5, -10, 2, 0.5, -9.75, 2, 0.5, -10.75, -1.75, 0.5, -10.75, 0.75, 0.5, -20.75, 0, 0.5, -21.5, -7.75, 0.5, -25.75, -7.75, 0.5, -11.5, -2.5, 0.5, -11.5, 2.75, 0.5, -11.5, 8, 0.5, -11.5, 8, 0.5, -20.75, -1.75, 0.5, -9.25, 2, 0.5, -9, -2.75, 0.5, -8.25, -7.75, 0.5, -8.25, -7.75, 0.5, 13.5, 2.75, 0.5, -8.25, 8, 0.5, 13.5, 8, 0.5, -8.25)
-polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(6, 5, 4), PackedInt32Array(3, 7, 2), PackedInt32Array(2, 7, 4), PackedInt32Array(4, 7, 6), PackedInt32Array(6, 7, 8), PackedInt32Array(7, 9, 8), PackedInt32Array(0, 1, 10), PackedInt32Array(10, 1, 11), PackedInt32Array(13, 12, 14), PackedInt32Array(14, 12, 15), PackedInt32Array(11, 17, 10), PackedInt32Array(10, 17, 12), PackedInt32Array(12, 17, 15), PackedInt32Array(15, 17, 16), PackedInt32Array(19, 18, 20), PackedInt32Array(20, 18, 21), PackedInt32Array(21, 16, 20), PackedInt32Array(20, 16, 17), PackedInt32Array(20, 17, 23), PackedInt32Array(20, 23, 22), PackedInt32Array(27, 26, 24), PackedInt32Array(24, 26, 25), PackedInt32Array(29, 28, 30), PackedInt32Array(30, 28, 32), PackedInt32Array(30, 32, 31), PackedInt32Array(19, 29, 18), PackedInt32Array(18, 29, 30), PackedInt32Array(27, 32, 26), PackedInt32Array(26, 32, 33), PackedInt32Array(33, 32, 28), PackedInt32Array(34, 33, 35), PackedInt32Array(35, 33, 28), PackedInt32Array(37, 36, 25), PackedInt32Array(25, 36, 24), PackedInt32Array(40, 39, 38), PackedInt32Array(37, 41, 36), PackedInt32Array(36, 41, 38), PackedInt32Array(38, 41, 40), PackedInt32Array(40, 41, 42), PackedInt32Array(41, 43, 42)]
+vertices = PackedVector3Array(-9.5, 0.5, -49, -9.5, 0.5, -36, 9.5, 0.5, -36, 9.5, 0.5, -49, -2, 0.5, -28.5, -1.75, 0.5, -33.75, -8.25, 0.5, -33.75, -8.25, 0.5, -28.5, -0.75, 0.5, -26.25, 0.5, 0.5, -23, 0.75, 0.5, -23.5, -0.25, 0.5, -26.5, -0.25, 0.5, -28.25, 8.5, 0.5, -23.5, 8.5, 0.5, -33.75, 0.5, 0.5, -21.5, -8.25, 0.5, -26.25, -8.25, 0.5, -11, 2, 0.5, -11, 2.25, 0.5, -21.25, 8.5, 0.5, -11, 8.5, 0.5, -21.25, -8.25, 0.5, -8.75, -8.25, 0.5, 14, 8.5, 0.5, 14, 8.5, 0.5, -8.75)
+polygons = [PackedInt32Array(3, 2, 0), PackedInt32Array(0, 2, 1), PackedInt32Array(7, 6, 4), PackedInt32Array(4, 6, 5), PackedInt32Array(11, 10, 8), PackedInt32Array(8, 10, 9), PackedInt32Array(5, 14, 12), PackedInt32Array(12, 14, 13), PackedInt32Array(11, 12, 10), PackedInt32Array(10, 12, 13), PackedInt32Array(12, 4, 5), PackedInt32Array(8, 9, 15), PackedInt32Array(8, 15, 16), PackedInt32Array(16, 15, 17), PackedInt32Array(17, 15, 18), PackedInt32Array(15, 19, 18), PackedInt32Array(21, 20, 19), PackedInt32Array(19, 20, 18), PackedInt32Array(25, 24, 22), PackedInt32Array(22, 24, 23)]
+detail_sample_distance = 3.0
 
 [node name="Main" type="Node3D" unique_id=633159792]
 
@@ -75,6 +77,9 @@ use_collision = true
 size = Vector3(6, 5, 1)
 material = ExtResource("1_ig7tw")
 
+[node name="Door" parent="NavigationRegion3D/StartRoom" unique_id=534256866 instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
+
 [node name="Room1" type="Node3D" parent="NavigationRegion3D" unique_id=474029108]
 
 [node name="Wall" type="CSGBox3D" parent="NavigationRegion3D/Room1" unique_id=1723411087]
@@ -114,9 +119,12 @@ use_collision = true
 size = Vector3(8, 3, 1)
 material = ExtResource("1_ig7tw")
 
+[node name="Door" parent="NavigationRegion3D/Room1" unique_id=344981137 instance=ExtResource("3_1bvp3")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -35)
+
 [node name="Label3D" type="Label3D" parent="." unique_id=364774868]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.698592, 3.7933989, 3.4622526)
 text = "Where the teleport dashboard will be"
 
 [node name="Enemy" parent="." unique_id=1060190614 instance=ExtResource("4_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9469047, 1, -28.799637)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.9469047, 1.9384389, -28.799637)

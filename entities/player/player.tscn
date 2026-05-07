@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dahvby0kgailt" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://bfejxpbdk5q88" path="res://entities/player/arm_camera.tscn" id="2_abrql"]
+[ext_resource type="Script" uid="uid://uv2tyhjel5m" path="res://entities/player/interaction_raycast.gd" id="3_sglur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_abrql"]
 
@@ -25,6 +26,10 @@ mesh = SubResource("CapsuleMesh_symyc")
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body/MeshInstance3D" unique_id=2058732345]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.37088484, -0.5584666)
 mesh = SubResource("BoxMesh_symyc")
+
+[node name="InteractionRaycast" type="RayCast3D" parent="Body" unique_id=2110590941]
+target_position = Vector3(0, 0, -4)
+script = ExtResource("3_sglur")
 
 [node name="HorizontalPivot" type="Node3D" parent="." unique_id=1611498028]
 

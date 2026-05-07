@@ -48,9 +48,7 @@ func _ready() -> void:
 func connect_parent() -> void:
 	parent.connect("interacted", Callable(self, "check_door")) # "interacted" from interaction component
 
-func check_door(player: Player, type: InteractionRaycast.InteractionType) -> void:
-	if type != InteractionRaycast.InteractionType.INTERACT:
-		return
+func check_door(player: Player) -> void:
 	match forward_direction:
 		ForwardDirection.X:
 			door_direction = parent.global_transform.basis.x

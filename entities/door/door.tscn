@@ -1,0 +1,41 @@
+[gd_scene format=4 uid="uid://ciijtejnje05e"]
+
+[ext_resource type="Material" uid="uid://bodmuf3vf6aux" path="res://assets/textures/greybox_material.tres" id="1_05v0y"]
+[ext_resource type="Script" uid="uid://62cs4ro152pb" path="res://entities/door/door_component.gd" id="2_dsbe1"]
+[ext_resource type="Script" uid="uid://ce35bbfwwhx3m" path="res://entities/components/interaction_component.gd" id="3_6sqah"]
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_bfv6c"]
+_surfaces = [{
+"aabb": AABB(-3, -2.5, -0.5, 6, 5, 1),
+"attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
+"format": 34359738391,
+"material": ExtResource("1_05v0y"),
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 36,
+"vertex_data": PackedByteArray("AABAwAAAIMAAAAA/AABAwAAAIMAAAAC/AABAwAAAIEAAAAC/AABAQAAAIMAAAAC/AABAwAAAIMAAAAC/AABAwAAAIMAAAAA/AABAwAAAIEAAAAC/AABAwAAAIMAAAAC/AABAQAAAIMAAAAC/AABAwAAAIEAAAAC/AABAwAAAIEAAAAA/AABAwAAAIMAAAAA/AABAwAAAIMAAAAA/AABAwAAAIEAAAAA/AABAQAAAIEAAAAA/AABAQAAAIEAAAAA/AABAwAAAIEAAAAA/AABAwAAAIEAAAAC/AABAwAAAIMAAAAA/AABAQAAAIMAAAAA/AABAQAAAIMAAAAC/AABAQAAAIEAAAAA/AABAQAAAIMAAAAA/AABAwAAAIMAAAAA/AABAQAAAIMAAAAC/AABAQAAAIMAAAAA/AABAQAAAIEAAAAA/AABAQAAAIMAAAAC/AABAQAAAIEAAAAC/AABAwAAAIEAAAAC/AABAwAAAIEAAAAC/AABAQAAAIEAAAAC/AABAQAAAIEAAAAA/AABAQAAAIEAAAAA/AABAQAAAIEAAAAC/AABAQAAAIMAAAAC/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//38AAP//AAD/fwAA//8AAP9/AAD//wAA/////wAA/z//////AAD/P/////8AAP8/AAD/f/9//n8AAP9//3/+fwAA/3//f/5//3//fwAA/z//f/9/AAD/P/9//38AAP8//3//////AAD/f/////8AAP9//////wAA/38AAP//AAD/fwAA//8AAP9/AAD//wAA/3//fwAA/z//f/9/AAD/P/9//38AAP8/////f/9//n////9//3/+f////3//f/5//////wAA/z//////AAD/P/////8AAP8//3//////AAD/f/////8AAP9//////wAA////f/9//n////9//3/+f////3//f/5/")
+}]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dsbe1"]
+data = PackedVector3Array(-3, -2.5, 0.5, -3, -2.5, -0.5, -3, 2.5, -0.5, 3, -2.5, -0.5, -3, -2.5, -0.5, -3, -2.5, 0.5, -3, 2.5, -0.5, -3, -2.5, -0.5, 3, -2.5, -0.5, -3, 2.5, -0.5, -3, 2.5, 0.5, -3, -2.5, 0.5, -3, -2.5, 0.5, -3, 2.5, 0.5, 3, 2.5, 0.5, 3, 2.5, 0.5, -3, 2.5, 0.5, -3, 2.5, -0.5, -3, -2.5, 0.5, 3, -2.5, 0.5, 3, -2.5, -0.5, 3, 2.5, 0.5, 3, -2.5, 0.5, -3, -2.5, 0.5, 3, -2.5, -0.5, 3, -2.5, 0.5, 3, 2.5, 0.5, 3, -2.5, -0.5, 3, 2.5, -0.5, -3, 2.5, -0.5, -3, 2.5, -0.5, 3, 2.5, -0.5, 3, 2.5, 0.5, 3, 2.5, 0.5, 3, 2.5, -0.5, 3, -2.5, -0.5)
+
+[node name="Door" type="AnimatableBody3D" unique_id=534256866]
+
+[node name="CSGBakedMeshInstance3D" type="MeshInstance3D" parent="." unique_id=74971977]
+mesh = SubResource("ArrayMesh_bfv6c")
+
+[node name="CSGBakedCollisionShape3D" type="CollisionShape3D" parent="." unique_id=1457055611]
+shape = SubResource("ConcavePolygonShape3D_dsbe1")
+
+[node name="DoorComponent" type="Node" parent="." unique_id=2027208551]
+script = ExtResource("2_dsbe1")
+door_type = 1
+forward_direction = 1
+movement_direction = Vector3(0, -1.2, 0)
+door_size = Vector3(6, 5, 0)
+metadata/_custom_type_script = "uid://62cs4ro152pb"
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=130301347 node_paths=PackedStringArray("mesh")]
+script = ExtResource("3_6sqah")
+mesh = NodePath("../CSGBakedMeshInstance3D")
+metadata/_custom_type_script = "uid://ce35bbfwwhx3m"
