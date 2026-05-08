@@ -25,6 +25,7 @@ use_debug_shapes = true
 group = "player"
 
 [node name="GeneratorGridShape3D" type="GeneratorGridShape3D" parent="." unique_id=674629215]
+project_up = 5.0
 
 [node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorGridShape3D" unique_id=336436342 node_paths=PackedStringArray("distance_to")]
 distance_to = NodePath("../../ContextPlayer")
@@ -49,4 +50,5 @@ score_curve = SubResource("Curve_77jyu")
 [node name="TestPathFindTo3D" type="TestPathFindTo3D" parent="GeneratorGridShape3D" unique_id=707657234 node_paths=PackedStringArray("path_to")]
 path_to = NodePath("../../ContextQuerier3D")
 test_purpose = 1
+filter_multiple_context_filter_operator = 1
 score_curve = SubResource("Curve_q5lh1")

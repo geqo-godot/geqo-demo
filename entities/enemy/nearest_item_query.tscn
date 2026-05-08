@@ -1,0 +1,32 @@
+[gd_scene format=3 uid="uid://bguwf622wf5ea"]
+
+[sub_resource type="Curve" id="Curve_1lugk"]
+_data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
+point_count = 2
+
+[sub_resource type="Curve" id="Curve_6mssk"]
+_data = [Vector2(0, 0), 0.0, 2.0, 0, 0, Vector2(1, 1), -1.3204728e-06, 0.0, 0, 0]
+point_count = 2
+
+[node name="NearestItemQuery" type="EnvironmentQuery3D" unique_id=579007562]
+use_debug_shapes = true
+
+[node name="ContextQuerier3D" type="ContextQuerier3D" parent="." unique_id=1980516958]
+
+[node name="ContextPlayer" type="ContextInGroup3D" parent="." unique_id=658761847]
+group = "player"
+
+[node name="GeneratorInGroup3D" type="GeneratorInGroup3D" parent="." unique_id=1864662852 node_paths=PackedStringArray("generate_around")]
+generate_around = NodePath("../ContextQuerier3D")
+group = "items"
+collision_mask = 8.0
+
+[node name="TestDistanceToSelf" type="TestDistanceTo3D" parent="GeneratorInGroup3D" unique_id=1043457311 node_paths=PackedStringArray("distance_to")]
+distance_to = NodePath("../../ContextQuerier3D")
+test_purpose = 2
+score_curve = SubResource("Curve_1lugk")
+
+[node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorInGroup3D" unique_id=1868755299 node_paths=PackedStringArray("distance_to")]
+distance_to = NodePath("../../ContextPlayer")
+filter_min = 1.0
+score_curve = SubResource("Curve_6mssk")

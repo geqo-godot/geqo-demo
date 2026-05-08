@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dc0acu6tbf0q1"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_b7ct5"]
+
+[sub_resource type="Curve" id="Curve_b7ct5"]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
+point_count = 2
+
+[node name="StrafeQuery" type="EnvironmentQuery3D" unique_id=2041195646]
+
+[node name="ContextQuerier3D" type="ContextQuerier3D" parent="." unique_id=345444542]
+
+[node name="ContextPlayer" type="ContextInGroup3D" parent="." unique_id=988570645]
+group = "player"
+
+[node name="GeneratorCircleShape3D" type="GeneratorCircleShape3D" parent="." unique_id=724938846 node_paths=PackedStringArray("circle_center")]
+circle_center = NodePath("../ContextPlayer")
+circle_radius = 5.0
+space_between = 2.0
+use_cast_shape = true
+cast_shape = SubResource("SphereShape3D_b7ct5")
+
+[node name="TestDistanceTo3D" type="TestDistanceTo3D" parent="GeneratorCircleShape3D" unique_id=1888383378 node_paths=PackedStringArray("distance_to")]
+distance_to = NodePath("../../ContextQuerier3D")
+filter_type = 2
+filter_min = 1.0
+filter_max = 5.0
+score_curve = SubResource("Curve_b7ct5")
