@@ -28,6 +28,6 @@ score_curve = SubResource("Curve_1lugk")
 
 [node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorInGroup3D" unique_id=1868755299 node_paths=PackedStringArray("distance_to")]
 distance_to = NodePath("../../ContextPlayer")
-test_purpose = 1
+test_purpose = 2
 filter_min = 3.0
 score_curve = SubResource("Curve_6mssk")

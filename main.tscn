@@ -5,6 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://ciijtejnje05e" path="res://entities/door/door.tscn" id="3_1bvp3"]
 [ext_resource type="Script" uid="uid://dw6ia116t1uus" path="res://room_manager.gd" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://cspvs3gehycix" path="res://entities/health_pack.tscn" id="4_5vw27"]
+[ext_resource type="Script" uid="uid://l7vswarcsa73" path="res://room_area.gd" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b012nkhhqv6o3" path="res://entities/enemy/querier_enemy.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d4eog570yu3v8" path="res://entities/enemy/line_of_sight_query.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dc0acu6tbf0q1" path="res://entities/enemy/strafe_query.tscn" id="6_7mycd"]
@@ -30,6 +31,21 @@ polygons = [PackedInt32Array(1, 0, 2), PackedInt32Array(2, 0, 3), PackedInt32Arr
 agent_radius = 0.75
 detail_sample_distance = 2.0
 
+[sub_resource type="BoxShape3D" id="BoxShape3D_4c57u"]
+size = Vector3(17.405273, 10.689453, 22.186523)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dg77c"]
+size = Vector3(17.439453, 10.689453, 23.700195)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_efxa6"]
+size = Vector3(23.841797, 10.689453, 27.495117)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ycdy4"]
+size = Vector3(23.841797, 10.689453, 22.473633)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w48qg"]
+size = Vector3(23.841797, 10.689453, 16.662354)
+
 [node name="Main" type="Node3D" unique_id=633159792]
 
 [node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=219282215]
@@ -40,7 +56,7 @@ transform = Transform3D(-0.8660254, -0.43301278, 0.25, 0, 0.49999997, 0.86602545
 shadow_enabled = true
 
 [node name="Player" parent="." unique_id=63577024 instance=ExtResource("2_0xm2m")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -98.336655)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 5.1077805)
 
 [node name="NavigationRegion3D" type="NavigationRegion3D" parent="." unique_id=2131170660]
 navigation_mesh = SubResource("NavigationMesh_h2yge")
@@ -59,6 +75,61 @@ material = ExtResource("1_ig7tw")
 
 [node name="RoomManager" type="Node3D" parent="NavigationRegion3D" unique_id=1775537022]
 script = ExtResource("3_kek77")
+
+[node name="RoomArea1" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=449961764 node_paths=PackedStringArray("assigned_room")]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, 1.9085712)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_efxa6")
+assigned_room = NodePath("../Room1")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea1" unique_id=1453152044]
+shape = SubResource("BoxShape3D_4c57u")
+
+[node name="RoomArea2" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=226525230 node_paths=PackedStringArray("assigned_room")]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -22.44931)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_efxa6")
+assigned_room = NodePath("../Room2")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea2" unique_id=846791297]
+shape = SubResource("BoxShape3D_dg77c")
+
+[node name="RoomArea3" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=1430034905 node_paths=PackedStringArray("assigned_room")]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -49.523457)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_efxa6")
+assigned_room = NodePath("../Room3")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea3" unique_id=1201902048]
+shape = SubResource("BoxShape3D_efxa6")
+
+[node name="RoomArea4" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=207165682 node_paths=PackedStringArray("assigned_room")]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -75.86814)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_efxa6")
+assigned_room = NodePath("../Room4")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea4" unique_id=1975816033]
+shape = SubResource("BoxShape3D_ycdy4")
+
+[node name="RoomArea5" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=881515119 node_paths=PackedStringArray("assigned_room")]
+process_mode = 3
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -97.10276)
+collision_layer = 0
+collision_mask = 2
+script = ExtResource("4_efxa6")
+assigned_room = NodePath("../Room5")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea5" unique_id=98854265]
+shape = SubResource("BoxShape3D_w48qg")
 
 [node name="Room1" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=474029108]
 
@@ -318,3 +389,9 @@ querier = NodePath("..")
 [node name="Label3D" type="Label3D" parent="." unique_id=364774868]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.698592, 3.7933989, 3.4622526)
 text = "Where the teleport dashboard will be"
+
+[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea1" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
+[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea2" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
+[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea3" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
+[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea4" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
+[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea5" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
