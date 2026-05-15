@@ -1,15 +1,21 @@
 [gd_scene format=4 uid="uid://ciijtejnje05e"]
 
-[ext_resource type="Material" uid="uid://bodmuf3vf6aux" path="res://assets/textures/greybox_material.tres" id="1_05v0y"]
+[ext_resource type="Texture2D" uid="uid://cjmkimg0mtjef" path="res://assets/textures/greybox_texture.png" id="1_dsbe1"]
 [ext_resource type="Script" uid="uid://62cs4ro152pb" path="res://entities/door/door_component.gd" id="2_dsbe1"]
 [ext_resource type="Script" uid="uid://ce35bbfwwhx3m" path="res://entities/components/interaction_component.gd" id="3_6sqah"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_6sqah"]
+albedo_color = Color(1, 0.60918945, 0.45833045, 1)
+albedo_texture = ExtResource("1_dsbe1")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true
 
 [sub_resource type="ArrayMesh" id="ArrayMesh_bfv6c"]
 _surfaces = [{
 "aabb": AABB(-3, -2.5, -0.5, 6, 5, 1),
 "attribute_data": PackedByteArray("AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/AACAPwAAgD8AAIA/AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACAPwAAgD8AAIA/"),
 "format": 34359738391,
-"material": ExtResource("1_05v0y"),
+"material": SubResource("StandardMaterial3D_6sqah"),
 "primitive": 3,
 "uv_scale": Vector4(0, 0, 0, 0),
 "vertex_count": 36,

@@ -2,14 +2,15 @@
 
 [ext_resource type="Material" uid="uid://bodmuf3vf6aux" path="res://assets/textures/greybox_material.tres" id="1_ig7tw"]
 [ext_resource type="PackedScene" uid="uid://c4ent8xvcyh2w" path="res://entities/player/player.tscn" id="2_0xm2m"]
+[ext_resource type="Material" uid="uid://klw31yc6q4vr" path="res://assets/textures/bluish_greybox_material.tres" id="2_ycdy4"]
 [ext_resource type="PackedScene" uid="uid://ciijtejnje05e" path="res://entities/door/door.tscn" id="3_1bvp3"]
-[ext_resource type="Script" uid="uid://dw6ia116t1uus" path="res://room_manager.gd" id="3_kek77"]
 [ext_resource type="PackedScene" uid="uid://cspvs3gehycix" path="res://entities/health_pack.tscn" id="4_5vw27"]
 [ext_resource type="Script" uid="uid://l7vswarcsa73" path="res://room_area.gd" id="4_efxa6"]
 [ext_resource type="PackedScene" uid="uid://b012nkhhqv6o3" path="res://entities/enemy/querier_enemy.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d4eog570yu3v8" path="res://entities/enemy/line_of_sight_query.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dc0acu6tbf0q1" path="res://entities/enemy/strafe_query.tscn" id="6_7mycd"]
 [ext_resource type="PackedScene" uid="uid://c27pvfd8sx1s6" path="res://entities/enemy/keep_distance_query.tscn" id="7_272bh"]
+[ext_resource type="Material" uid="uid://cfukwd7txwlly" path="res://assets/textures/green_greybox_material.tres" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bguwf622wf5ea" path="res://entities/enemy/nearest_item_query.tscn" id="10_4c57u"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
@@ -65,7 +66,7 @@ navigation_mesh = SubResource("NavigationMesh_h2yge")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -10)
 use_collision = true
 size = Vector3(20, 0.5, 51)
-material = ExtResource("1_ig7tw")
+material = ExtResource("2_ycdy4")
 
 [node name="Floor2" type="CSGBox3D" parent="NavigationRegion3D" unique_id=566228297]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -71)
@@ -74,7 +75,6 @@ size = Vector3(26, 0.5, 71)
 material = ExtResource("1_ig7tw")
 
 [node name="RoomManager" type="Node3D" parent="NavigationRegion3D" unique_id=1775537022]
-script = ExtResource("3_kek77")
 
 [node name="RoomArea1" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=449961764 node_paths=PackedStringArray("assigned_room")]
 process_mode = 3
@@ -87,46 +87,58 @@ assigned_room = NodePath("../Room1")
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea1" unique_id=1453152044]
 shape = SubResource("BoxShape3D_4c57u")
 
-[node name="RoomArea2" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=226525230 node_paths=PackedStringArray("assigned_room")]
+[node name="RoomArea2" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=226525230 node_paths=PackedStringArray("assigned_room", "spawn_point")]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -22.44931)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_efxa6")
 assigned_room = NodePath("../Room2")
+spawn_point = NodePath("../Room2/SpawnPoint")
+enemy_scene = ExtResource("4_lquwl")
+environment_query = ExtResource("5_7mycd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea2" unique_id=846791297]
 shape = SubResource("BoxShape3D_dg77c")
 
-[node name="RoomArea3" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=1430034905 node_paths=PackedStringArray("assigned_room")]
+[node name="RoomArea3" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=1430034905 node_paths=PackedStringArray("assigned_room", "spawn_point")]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -49.523457)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_efxa6")
 assigned_room = NodePath("../Room3")
+spawn_point = NodePath("../Room3/SpawnPoint")
+enemy_scene = ExtResource("4_lquwl")
+environment_query = ExtResource("6_7mycd")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea3" unique_id=1201902048]
 shape = SubResource("BoxShape3D_efxa6")
 
-[node name="RoomArea4" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=207165682 node_paths=PackedStringArray("assigned_room")]
+[node name="RoomArea4" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=207165682 node_paths=PackedStringArray("assigned_room", "spawn_point")]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -75.86814)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_efxa6")
 assigned_room = NodePath("../Room4")
+spawn_point = NodePath("../Room4/SpawnPoint")
+enemy_scene = ExtResource("4_lquwl")
+environment_query = ExtResource("7_272bh")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea4" unique_id=1975816033]
 shape = SubResource("BoxShape3D_ycdy4")
 
-[node name="RoomArea5" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=881515119 node_paths=PackedStringArray("assigned_room")]
+[node name="RoomArea5" type="Area3D" parent="NavigationRegion3D/RoomManager" unique_id=881515119 node_paths=PackedStringArray("assigned_room", "spawn_point")]
 process_mode = 3
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.9727974, -97.10276)
 collision_layer = 0
 collision_mask = 2
 script = ExtResource("4_efxa6")
 assigned_room = NodePath("../Room5")
+spawn_point = NodePath("../Room5/SpawnPoint")
+enemy_scene = ExtResource("4_lquwl")
+environment_query = ExtResource("10_4c57u")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea5" unique_id=98854265]
 shape = SubResource("BoxShape3D_w48qg")
@@ -185,13 +197,13 @@ material = ExtResource("1_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -22.458)
 use_collision = true
 size = Vector3(8, 3, 1)
-material = ExtResource("1_ig7tw")
+material = ExtResource("7_w48qg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=1787802467]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -27.468)
 use_collision = true
 size = Vector3(8, 3, 1)
-material = ExtResource("1_ig7tw")
+material = ExtResource("7_w48qg")
 
 [node name="Wall3" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=1437681804]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5, -35)
@@ -209,12 +221,8 @@ material = ExtResource("1_ig7tw")
 [node name="Door" parent="NavigationRegion3D/RoomManager/Room2" unique_id=344981137 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -35)
 
-[node name="QuerierEnemy" parent="NavigationRegion3D/RoomManager/Room2" unique_id=1625073531 node_paths=PackedStringArray("env_query") instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5279121, -19.270891)
-env_query = NodePath("LineOfSightQuery")
-
-[node name="LineOfSightQuery" parent="NavigationRegion3D/RoomManager/Room2/QuerierEnemy" unique_id=41051657 node_paths=PackedStringArray("querier") instance=ExtResource("5_7mycd")]
-querier = NodePath("..")
+[node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=96274186]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15431142, 1, -28.709988)
 
 [node name="Room3" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=368810564]
 
@@ -246,13 +254,8 @@ material = ExtResource("1_ig7tw")
 [node name="Door2" parent="NavigationRegion3D/RoomManager/Room3" unique_id=1931682555 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -64)
 
-[node name="QuerierEnemy2" parent="NavigationRegion3D/RoomManager/Room3" unique_id=1782865786 node_paths=PackedStringArray("env_query") instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.7872257, -49.61211)
-env_query = NodePath("StrafeQuery")
-
-[node name="StrafeQuery" parent="NavigationRegion3D/RoomManager/Room3/QuerierEnemy2" unique_id=2041195646 node_paths=PackedStringArray("querier") instance=ExtResource("6_7mycd")]
-querier = NodePath("..")
-use_debug_shapes = true
+[node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room3" unique_id=338539825]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -49.612)
 
 [node name="Room4" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=2084403242]
 
@@ -316,12 +319,8 @@ height = 15.0
 sides = 10
 material = ExtResource("1_ig7tw")
 
-[node name="QuerierEnemy3" parent="NavigationRegion3D/RoomManager/Room4" unique_id=874591123 node_paths=PackedStringArray("env_query") instance=ExtResource("4_lquwl")]
+[node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=2044152510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5279121, -78.61211)
-env_query = NodePath("KeepDistanceQuery")
-
-[node name="KeepDistanceQuery" parent="NavigationRegion3D/RoomManager/Room4/QuerierEnemy3" unique_id=1280682818 node_paths=PackedStringArray("querier") instance=ExtResource("7_272bh")]
-querier = NodePath("..")
 
 [node name="Room5" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=1391249632]
 
@@ -379,19 +378,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7148633, 0.49032164, -92.5
 [node name="HealthPack4" parent="NavigationRegion3D/RoomManager/Room5" unique_id=456856778 instance=ExtResource("4_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9846463, 0.49032164, -91.24901)
 
-[node name="QuerierEnemy" parent="NavigationRegion3D/RoomManager/Room5" unique_id=69475332 node_paths=PackedStringArray("env_query") instance=ExtResource("4_lquwl")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8077946, -95.22966)
-env_query = NodePath("NearestItemQuery")
-
-[node name="NearestItemQuery" parent="NavigationRegion3D/RoomManager/Room5/QuerierEnemy" unique_id=579007562 node_paths=PackedStringArray("querier") instance=ExtResource("10_4c57u")]
-querier = NodePath("..")
+[node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room5" unique_id=861124399]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.869, 1, -97.864)
 
 [node name="Label3D" type="Label3D" parent="." unique_id=364774868]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.698592, 3.7933989, 3.4622526)
 text = "Where the teleport dashboard will be"
-
-[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea1" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
-[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea2" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
-[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea3" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
-[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea4" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]
-[connection signal="player_entered" from="NavigationRegion3D/RoomManager/RoomArea5" to="NavigationRegion3D/RoomManager" method="_on_room_area_player_entered"]

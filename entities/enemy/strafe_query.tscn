@@ -7,6 +7,7 @@ _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
 [node name="StrafeQuery" type="EnvironmentQuery3D" unique_id=2041195646]
+use_debug_shapes = true
 
 [node name="ContextQuerier3D" type="ContextQuerier3D" parent="." unique_id=345444542]
 

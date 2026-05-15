@@ -1,0 +1,9 @@
+[gd_resource type="StandardMaterial3D" format=3 uid="uid://klw31yc6q4vr"]
+
+[ext_resource type="Texture2D" uid="uid://cjmkimg0mtjef" path="res://assets/textures/greybox_texture.png" id="1_og15x"]
+
+[resource]
+albedo_color = Color(0.5058824, 0.6, 0.92156863, 1)
+albedo_texture = ExtResource("1_og15x")
+uv1_scale = Vector3(0.5, 0.5, 0.5)
+uv1_triplanar = true

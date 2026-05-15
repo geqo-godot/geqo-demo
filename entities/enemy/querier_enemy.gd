@@ -1,4 +1,4 @@
-extends CharacterBody3D
+class_name QuerierEnemy extends CharacterBody3D
 
 const JUMP_VELOCITY = 4
 const SPEED = 500
