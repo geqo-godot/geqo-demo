@@ -1,0 +1,12 @@
+[gd_scene format=3 uid="uid://o51ysogndjt6"]
+
+[ext_resource type="Script" uid="uid://bb0t2ovl7wifo" path="res://addons/beehave/nodes/beehave_tree.gd" id="1_57cqr"]
+[ext_resource type="PackedScene" uid="uid://emnalx085sn8" path="res://entities/enemy/actions/idle_action.tscn" id="2_ds1ol"]
+
+[node name="ScaredGuyAI" type="Node" unique_id=555088902 node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_57cqr")
+blackboard = NodePath("@Node@89362")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="IdleAction" parent="." unique_id=554147544 instance=ExtResource("2_ds1ol")]

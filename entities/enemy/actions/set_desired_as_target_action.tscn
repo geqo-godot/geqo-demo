@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://cx5th32iwwgb"]
+
+[ext_resource type="Script" uid="uid://bmm1dqxvcb4ws" path="res://entities/enemy/actions/set_desired_as_target_action.gd" id="1_xlv1y"]
+
+[node name="SetDesiredAsTargetAction" type="Node" unique_id=28915787]
+script = ExtResource("1_xlv1y")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"

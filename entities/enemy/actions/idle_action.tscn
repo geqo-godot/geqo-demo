@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://emnalx085sn8"]
+
+[ext_resource type="Script" uid="uid://bfpa2iftecuyu" path="res://entities/enemy/actions/idle_action.gd" id="1_tnqkq"]
+
+[node name="IdleAction" type="Node" unique_id=554147544]
+script = ExtResource("1_tnqkq")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"

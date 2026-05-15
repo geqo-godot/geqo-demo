@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://b012nkhhqv6o3" path="res://entities/enemy/querier_enemy.tscn" id="4_lquwl"]
 [ext_resource type="PackedScene" uid="uid://d4eog570yu3v8" path="res://entities/enemy/line_of_sight_query.tscn" id="5_7mycd"]
 [ext_resource type="PackedScene" uid="uid://dc0acu6tbf0q1" path="res://entities/enemy/strafe_query.tscn" id="6_7mycd"]
+[ext_resource type="PackedScene" uid="uid://o51ysogndjt6" path="res://entities/enemy/behavior_trees/scared_guy_ai.tscn" id="6_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c27pvfd8sx1s6" path="res://entities/enemy/keep_distance_query.tscn" id="7_272bh"]
 [ext_resource type="Material" uid="uid://cfukwd7txwlly" path="res://assets/textures/green_greybox_material.tres" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bguwf622wf5ea" path="res://entities/enemy/nearest_item_query.tscn" id="10_4c57u"]
@@ -98,6 +99,7 @@ assigned_room = NodePath("../Room2")
 spawn_point = NodePath("../Room2/SpawnPoint")
 enemy_scene = ExtResource("4_lquwl")
 environment_query = ExtResource("5_7mycd")
+behavior = ExtResource("6_w48qg")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea2" unique_id=846791297]
 shape = SubResource("BoxShape3D_dg77c")
