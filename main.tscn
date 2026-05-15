@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://c27pvfd8sx1s6" path="res://entities/enemy/keep_distance_query.tscn" id="7_272bh"]
 [ext_resource type="Material" uid="uid://cfukwd7txwlly" path="res://assets/textures/green_greybox_material.tres" id="7_w48qg"]
 [ext_resource type="PackedScene" uid="uid://bguwf622wf5ea" path="res://entities/enemy/nearest_item_query.tscn" id="10_4c57u"]
+[ext_resource type="Material" uid="uid://pdkcvun2ln41" path="res://assets/textures/red_greybox_material.tres" id="12_ycdy4"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -72,7 +73,7 @@ material = ExtResource("2_ycdy4")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.25, -71)
 use_collision = true
 size = Vector3(26, 0.5, 71)
-material = ExtResource("1_ig7tw")
+material = ExtResource("2_ycdy4")
 
 [node name="RoomManager" type="Node3D" parent="NavigationRegion3D" unique_id=1775537022]
 
@@ -293,7 +294,7 @@ use_collision = true
 radius = 2.0
 height = 15.0
 sides = 10
-material = ExtResource("1_ig7tw")
+material = ExtResource("12_ycdy4")
 
 [node name="CSGCylinder3D4" type="CSGCylinder3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=1180002173]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.6442356, 7.0723877, -72.7693)
@@ -301,7 +302,7 @@ use_collision = true
 radius = 2.0
 height = 15.0
 sides = 10
-material = ExtResource("1_ig7tw")
+material = ExtResource("12_ycdy4")
 
 [node name="CSGCylinder3D2" type="CSGCylinder3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=546735171]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6.3557644, 7.0723877, -71.7693)
@@ -309,7 +310,7 @@ use_collision = true
 radius = 1.5
 height = 15.0
 sides = 10
-material = ExtResource("1_ig7tw")
+material = ExtResource("12_ycdy4")
 
 [node name="CSGCylinder3D3" type="CSGCylinder3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=1317437866]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.3557644, 7.0723877, -79.6248)
@@ -317,7 +318,7 @@ use_collision = true
 radius = 1.5
 height = 15.0
 sides = 10
-material = ExtResource("1_ig7tw")
+material = ExtResource("12_ycdy4")
 
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=2044152510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5279121, -78.61211)
@@ -354,7 +355,7 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -106)
 
 [node name="Wedge" type="CSGCombiner3D" parent="NavigationRegion3D/RoomManager/Room5" unique_id=1912694026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -98)
-material_overlay = ExtResource("1_ig7tw")
+material_overlay = ExtResource("12_ycdy4")
 use_collision = true
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room5/Wedge" unique_id=1638508712]
