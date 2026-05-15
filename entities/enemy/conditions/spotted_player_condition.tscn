@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://dvtu1jogx4xrp"]
+
+[ext_resource type="Script" uid="uid://x4rmtybm7e7" path="res://entities/enemy/conditions/spotted_player_condition.gd" id="1_a0bx8"]
+
+[node name="SpottedPlayerCondition" type="Node" unique_id=267310027]
+script = ExtResource("1_a0bx8")
+collision_mask = 3
+metadata/_custom_type_script = "uid://cbnbvj8prv63i"
