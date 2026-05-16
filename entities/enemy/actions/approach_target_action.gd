@@ -4,20 +4,19 @@ extends ActionLeaf
 
 ## How close the enemy is to target to succeed
 @export var min_range: float = 3
+@export var blackboard_key: String = "query_result"
 
-
-var current_target: Node3D
+var current_target: Vector3
+var final_target: Vector3
 
 func before_run(actor: Node, blackboard: Blackboard) -> void:
-	current_target = blackboard.get_value("target")
+	final_target = blackboard.get_value(blackboard_key)
+	actor.nav_agent.target_position = final_target
 
 func tick(actor: Node, blackboard: Blackboard) -> int:
-	if not current_target:
-		print_debug("Target needed.")
-		return FAILURE
+	current_target = actor.nav_agent.get_next_path_position()
 	actor.move_to_target(current_target)
-	actor.state_label.text = "Approaching Target"
 	
-	if actor.global_position.distance_to(blackboard.get_value("target").global_position) < min_range:
+	if actor.global_position.distance_to(final_target) < min_range:
 		return SUCCESS
 	return RUNNING

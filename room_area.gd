@@ -15,7 +15,7 @@ func _ready() -> void:
 func _on_body_entered(body: Node3D):
 	if body is not Player:
 		return
-	print_debug("Acho a player")
+	print_debug("Player entered room")
 	if enemy_scene:
 		var enemy_instance: QuerierEnemy = enemy_scene.instantiate()
 		var env_query_instance: EnvironmentQuery3D = environment_query.instantiate()
@@ -24,6 +24,7 @@ func _on_body_entered(body: Node3D):
 		enemy_instance.add_child(env_query_instance)
 		enemy_instance.add_child(behavior_instance)
 		enemy_instance.env_query = env_query_instance
+		behavior_instance.setup(env_query_instance)
 		active_enemies.append(enemy_instance)
 
 func _on_body_exited(body: Node3D):

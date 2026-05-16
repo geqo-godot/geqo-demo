@@ -225,7 +225,7 @@ material = ExtResource("1_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -35)
 
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=96274186]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.15431142, 1, -28.709988)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.666442, 1, -18.209003)
 
 [node name="Room3" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=368810564]
 

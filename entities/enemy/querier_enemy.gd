@@ -1,7 +1,7 @@
 class_name QuerierEnemy extends CharacterBody3D
 
 const JUMP_VELOCITY = 4
-const SPEED = 500
+const SPEED = 8
 
 enum State {IDLE, WALKING}
 @export var env_query: EnvironmentQuery3D
@@ -10,6 +10,9 @@ var current_state: State = State.IDLE
 var final_target: Vector3
 var current_target
 @onready var nav_agent: NavigationAgent3D = $NavigationAgent3D
+
+func set_up_query():
+	%ExecuteQueryAction.environment_query = env_query
 
 func _input(event: InputEvent) -> void:
 	if event.is_action_pressed("request_query"):
@@ -33,10 +36,10 @@ func _physics_process(delta: float) -> void:
 			walking(delta)
 	move_and_slide()
 
-func move_to_target(delta: float, target: Vector3):
+func move_to_target(target: Vector3):
 	var direction: Vector3 = (self.global_position.direction_to(target))
-	velocity.x = direction.x * SPEED * delta
-	velocity.z = direction.z * SPEED * delta
+	velocity.x = direction.x * SPEED
+	velocity.z = direction.z * SPEED
 
 func idle():
 	velocity.x = lerp(velocity.x, 0.0, 0.25)
@@ -49,7 +52,7 @@ func walking(delta: float):
 		current_state = State.IDLE
 		return
 	current_target = nav_agent.get_next_path_position()
-	move_to_target(delta, current_target)
+	move_to_target(current_target)
 
 func _on_navigation_agent_3d_target_reached() -> void:
 	current_target = null
