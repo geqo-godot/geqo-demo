@@ -5,12 +5,14 @@
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_y8lbn"]
 [ext_resource type="PackedScene" uid="uid://oyc6sddaqt8u" path="res://entities/enemy/actions/approach_target_action.tscn" id="4_obh6a"]
 [ext_resource type="PackedScene" uid="uid://emnalx085sn8" path="res://entities/enemy/actions/idle_action.tscn" id="5_8pw3q"]
+[ext_resource type="PackedScene" uid="uid://bgyb485co2ryq" path="res://entities/enemy/conditions/target_close_condition.tscn" id="6_2ge5v"]
 [ext_resource type="PackedScene" uid="uid://dvtu1jogx4xrp" path="res://entities/enemy/conditions/spotted_player_condition.tscn" id="6_x3fdy"]
 [ext_resource type="PackedScene" uid="uid://cir0r5eaurhxs" path="res://entities/enemy/actions/execute_query_action.tscn" id="7_83pmf"]
+[ext_resource type="Script" uid="uid://we22430vcb44" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="7_y8lbn"]
 
 [node name="StrafingGuyAI" type="Node" unique_id=555088902 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_ty3x2")
-blackboard = NodePath("@Node@25593")
+blackboard = NodePath("@Node@46696")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 
@@ -18,24 +20,37 @@ metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 script = ExtResource("2_2ge5v")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
 
-[node name="EscapePlayer" type="Node" parent="MainSelector" unique_id=23125155]
-script = ExtResource("3_y8lbn")
-metadata/_custom_type_script = "uid://cg016dbe7gs1x"
-
-[node name="ApproachTargetAction" parent="MainSelector/EscapePlayer" unique_id=1641145631 instance=ExtResource("4_obh6a")]
-blackboard_key = "query_result"
-
-[node name="IdleAction" parent="MainSelector" unique_id=554147544 instance=ExtResource("5_8pw3q")]
-
 [node name="StrafePlayer" type="Node" parent="MainSelector" unique_id=52012844]
 script = ExtResource("3_y8lbn")
 metadata/_custom_type_script = "uid://cg016dbe7gs1x"
 
 [node name="SpottedPlayerCondition" parent="MainSelector/StrafePlayer" unique_id=267310027 instance=ExtResource("6_x3fdy")]
 
-[node name="CheckIfClose" type="Node" parent="MainSelector/StrafePlayer" unique_id=1556715441]
+[node name="CloseUpAndStrafe" type="Node" parent="MainSelector/StrafePlayer" unique_id=793532608]
 script = ExtResource("2_2ge5v")
 metadata/_custom_type_script = "uid://8hn4kne15ac5"
 
-[node name="ExecuteQueryAction" parent="MainSelector/StrafePlayer/CheckIfClose" unique_id=999461639 instance=ExtResource("7_83pmf")]
+[node name="Strafe" type="Node" parent="MainSelector/StrafePlayer/CloseUpAndStrafe" unique_id=105818998]
+script = ExtResource("3_y8lbn")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="TargetCloseCondition" parent="MainSelector/StrafePlayer/CloseUpAndStrafe/Strafe" unique_id=538231288 instance=ExtResource("6_2ge5v")]
+min_distance = 6.0
+
+[node name="ExecuteQueryAction" parent="MainSelector/StrafePlayer/CloseUpAndStrafe/Strafe" unique_id=999461639 instance=ExtResource("7_83pmf")]
 unique_name_in_owner = true
+
+[node name="TimeLimiterDecorator" type="Node" parent="MainSelector/StrafePlayer/CloseUpAndStrafe/Strafe" unique_id=1730920288]
+script = ExtResource("7_y8lbn")
+wait_time = 3.0
+metadata/_custom_type_script = "uid://we22430vcb44"
+
+[node name="ApproachTargetAction" parent="MainSelector/StrafePlayer/CloseUpAndStrafe/Strafe/TimeLimiterDecorator" unique_id=1641145631 instance=ExtResource("4_obh6a")]
+min_range = 0.5
+
+[node name="ApproachTargetAction" parent="MainSelector/StrafePlayer/CloseUpAndStrafe" unique_id=1553501566 instance=ExtResource("4_obh6a")]
+min_range = 4.0
+blackboard_key = &"target_player"
+target_type = 1
+
+[node name="IdleAction" parent="MainSelector" unique_id=554147544 instance=ExtResource("5_8pw3q")]

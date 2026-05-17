@@ -12,6 +12,8 @@
 [ext_resource type="PackedScene" uid="uid://o51ysogndjt6" path="res://entities/enemy/behavior_trees/scared_guy_ai.tscn" id="6_w48qg"]
 [ext_resource type="PackedScene" uid="uid://c27pvfd8sx1s6" path="res://entities/enemy/keep_distance_query.tscn" id="7_272bh"]
 [ext_resource type="Material" uid="uid://cfukwd7txwlly" path="res://assets/textures/green_greybox_material.tres" id="7_w48qg"]
+[ext_resource type="PackedScene" uid="uid://dltqybcucdrgu" path="res://entities/enemy/behavior_trees/strafing_guy_ai.tscn" id="8_vivmo"]
+[ext_resource type="PackedScene" uid="uid://e3jj75x12p4o" path="res://entities/enemy/behavior_trees/keep_distance_guy_ai.tscn" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bguwf622wf5ea" path="res://entities/enemy/nearest_item_query.tscn" id="10_4c57u"]
 [ext_resource type="Material" uid="uid://pdkcvun2ln41" path="res://assets/textures/red_greybox_material.tres" id="12_ycdy4"]
 
@@ -114,6 +116,7 @@ assigned_room = NodePath("../Room3")
 spawn_point = NodePath("../Room3/SpawnPoint")
 enemy_scene = ExtResource("4_lquwl")
 environment_query = ExtResource("6_7mycd")
+behavior = ExtResource("8_vivmo")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea3" unique_id=1201902048]
 shape = SubResource("BoxShape3D_efxa6")
@@ -128,6 +131,7 @@ assigned_room = NodePath("../Room4")
 spawn_point = NodePath("../Room4/SpawnPoint")
 enemy_scene = ExtResource("4_lquwl")
 environment_query = ExtResource("7_272bh")
+behavior = ExtResource("10_2cqfq")
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="NavigationRegion3D/RoomManager/RoomArea4" unique_id=1975816033]
 shape = SubResource("BoxShape3D_ycdy4")
@@ -197,15 +201,15 @@ size = Vector3(1, 10, 24)
 material = ExtResource("1_ig7tw")
 
 [node name="CSGBox3D" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=2069398384]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.5, -22.458)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5, 1.25, -22.458)
 use_collision = true
-size = Vector3(8, 3, 1)
+size = Vector3(8, 2.5, 1)
 material = ExtResource("7_w48qg")
 
 [node name="CSGBox3D2" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=1787802467]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.5, -27.468)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5, 1.25, -27.468)
 use_collision = true
-size = Vector3(8, 3, 1)
+size = Vector3(8, 2.5, 1)
 material = ExtResource("7_w48qg")
 
 [node name="Wall3" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=1437681804]
@@ -323,7 +327,7 @@ sides = 10
 material = ExtResource("12_ycdy4")
 
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=2044152510]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5279121, -78.61211)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -78.612)
 
 [node name="Room5" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=1391249632]
 

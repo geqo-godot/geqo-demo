@@ -27,6 +27,7 @@ generate_around = NodePath("../ContextQuerier3D")
 grid_half_size = 15.0
 space_between = 4.0
 project_up = 8.0
+post_projection_vertical_offset = 1.0
 
 [node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorGridShape3D" unique_id=951555559 node_paths=PackedStringArray("distance_to")]
 distance_to = NodePath("../../ContextPlayer")

@@ -17,7 +17,7 @@ func before_run(actor: Node, _blackboard: Blackboard) -> void:
 func tick(_actor: Node, blackboard: Blackboard) -> int:
 	if result:
 		if result.has_result():
-			blackboard.set_value("query_result", get_result())
+			blackboard.set_value(&"query_result", get_result())
 			return SUCCESS
 		else:
 			return FAILURE

@@ -1,0 +1,44 @@
+[gd_scene format=3 uid="uid://e3jj75x12p4o"]
+
+[ext_resource type="Script" uid="uid://ddfo8xbm1exa3" path="res://entities/enemy/behavior_trees/scared_guy_ai.gd" id="1_0pjn4"]
+[ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="2_jj8nx"]
+[ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_kj1bb"]
+[ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="4_krts3"]
+[ext_resource type="PackedScene" uid="uid://dvtu1jogx4xrp" path="res://entities/enemy/conditions/spotted_player_condition.tscn" id="5_t83bd"]
+[ext_resource type="PackedScene" uid="uid://cir0r5eaurhxs" path="res://entities/enemy/actions/execute_query_action.tscn" id="6_y0rs5"]
+[ext_resource type="Script" uid="uid://we22430vcb44" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="7_jj8nx"]
+[ext_resource type="PackedScene" uid="uid://oyc6sddaqt8u" path="res://entities/enemy/actions/approach_target_action.tscn" id="7_qand1"]
+[ext_resource type="PackedScene" uid="uid://emnalx085sn8" path="res://entities/enemy/actions/idle_action.tscn" id="8_o3h0s"]
+
+[node name="KeepDistanceGuyAI" type="Node" unique_id=555088902 node_paths=PackedStringArray("blackboard", "actor")]
+script = ExtResource("1_0pjn4")
+blackboard = NodePath("@Node@39629")
+actor = NodePath("..")
+metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
+
+[node name="MainSelector" type="Node" parent="." unique_id=1588249384]
+script = ExtResource("2_jj8nx")
+metadata/_custom_type_script = "uid://8hn4kne15ac5"
+
+[node name="KeepPlayerLineOfSight" type="Node" parent="MainSelector" unique_id=23125155]
+script = ExtResource("3_kj1bb")
+metadata/_custom_type_script = "uid://cg016dbe7gs1x"
+
+[node name="NotSpottedPlayer" type="Node" parent="MainSelector/KeepPlayerLineOfSight" unique_id=412898096]
+script = ExtResource("4_krts3")
+metadata/_custom_type_script = "uid://crkjak4kyv56m"
+
+[node name="SpottedPlayerCondition" parent="MainSelector/KeepPlayerLineOfSight/NotSpottedPlayer" unique_id=267310027 instance=ExtResource("5_t83bd")]
+
+[node name="ExecuteQueryAction" parent="MainSelector/KeepPlayerLineOfSight" unique_id=999461639 instance=ExtResource("6_y0rs5")]
+unique_name_in_owner = true
+
+[node name="TimeLimiterDecorator" type="Node" parent="MainSelector/KeepPlayerLineOfSight" unique_id=1585876563]
+script = ExtResource("7_jj8nx")
+wait_time = 2.0
+metadata/_custom_type_script = "uid://we22430vcb44"
+
+[node name="ApproachTargetAction" parent="MainSelector/KeepPlayerLineOfSight/TimeLimiterDecorator" unique_id=1641145631 instance=ExtResource("7_qand1")]
+min_range = 1.0
+
+[node name="IdleAction" parent="MainSelector" unique_id=554147544 instance=ExtResource("8_o3h0s")]

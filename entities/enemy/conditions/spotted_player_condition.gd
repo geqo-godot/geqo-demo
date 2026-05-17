@@ -20,7 +20,7 @@ func tick(actor: Node, blackboard: Blackboard) -> int:
 	raycast.target_position = raycast.to_local(player.global_position)
 	raycast.force_raycast_update()
 	if raycast.get_collider() == player:
-		blackboard.set_value("target_player", player)
+		blackboard.set_value(&"target_player", player)
 		return SUCCESS
 	return FAILURE
 

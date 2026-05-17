@@ -4,5 +4,4 @@
 
 [node name="ApproachTargetAction" type="Node" unique_id=1641145631]
 script = ExtResource("1_b70ev")
-target_type = null
 metadata/_custom_type_script = "uid://cv74jjdrwevpr"

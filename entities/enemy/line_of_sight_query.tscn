@@ -4,6 +4,8 @@
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_q5lh1"]
+
 [sub_resource type="Curve" id="Curve_gmutw"]
 _data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
@@ -26,6 +28,7 @@ group = "player"
 
 [node name="GeneratorGridShape3D" type="GeneratorGridShape3D" parent="." unique_id=674629215]
 project_up = 5.0
+post_projection_vertical_offset = 1.0
 
 [node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorGridShape3D" unique_id=336436342 node_paths=PackedStringArray("distance_to")]
 distance_to = NodePath("../../ContextPlayer")
@@ -36,6 +39,8 @@ score_clamp_max_type = 1
 [node name="TestRaycastTo3D" type="TestRaycastTo3D" parent="GeneratorGridShape3D" unique_id=489563854 node_paths=PackedStringArray("context")]
 context = NodePath("../../ContextPlayer")
 collision_mask = 3
+use_shape_cast = true
+shape = SubResource("SphereShape3D_q5lh1")
 test_purpose = 1
 filter_bool_match = false
 score_bool_match = false
