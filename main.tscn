@@ -16,6 +16,7 @@
 [ext_resource type="PackedScene" uid="uid://e3jj75x12p4o" path="res://entities/enemy/behavior_trees/keep_distance_guy_ai.tscn" id="10_2cqfq"]
 [ext_resource type="PackedScene" uid="uid://bguwf622wf5ea" path="res://entities/enemy/nearest_item_query.tscn" id="10_4c57u"]
 [ext_resource type="Material" uid="uid://pdkcvun2ln41" path="res://assets/textures/red_greybox_material.tres" id="12_ycdy4"]
+[ext_resource type="PackedScene" uid="uid://c7y0jkvs5gu4q" path="res://entities/teleport_button/teleport_button.tscn" id="14_yaehf"]
 
 [sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_0xm2m"]
 sky_horizon_color = Color(0.66224277, 0.6717428, 0.6867428, 1)
@@ -186,6 +187,21 @@ material = ExtResource("1_ig7tw")
 [node name="Door5" parent="NavigationRegion3D/RoomManager/Room1" unique_id=534256866 instance=ExtResource("3_1bvp3")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
 
+[node name="Room2Teleporter" parent="NavigationRegion3D/RoomManager/Room1" unique_id=1363840293 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, 8.710244)
+teleport_message = "Enemy that hides from you"
+teleport_target = NodePath("../../Room2/TeleportPoint")
+
+[node name="Room3Teleporter" parent="NavigationRegion3D/RoomManager/Room1" unique_id=992092818 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, 4.6728377)
+teleport_message = "Enemy that strafes around you"
+teleport_target = NodePath("../../Room3/TeleportPoint")
+
+[node name="Room4Teleporter" parent="NavigationRegion3D/RoomManager/Room1" unique_id=941992456 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, 0.35962486)
+teleport_message = "Enemy that keeps it's distance"
+teleport_target = NodePath("../../Room4/TeleportPoint")
+
 [node name="Room2" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=1354219247]
 
 [node name="Wall" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=1723411087]
@@ -231,6 +247,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -35)
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=96274186]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.666442, 1, -18.209003)
 
+[node name="TeleportPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room2" unique_id=701053518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -15.702892)
+
 [node name="Room3" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=368810564]
 
 [node name="Wall4" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room3" unique_id=376420056]
@@ -263,6 +282,9 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -64)
 
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room3" unique_id=338539825]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -49.612)
+
+[node name="TeleportPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room3" unique_id=915278344]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -41.94152)
 
 [node name="Room4" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=2084403242]
 
@@ -329,6 +351,9 @@ material = ExtResource("12_ycdy4")
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=2044152510]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -78.612)
 
+[node name="TeleportPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room4" unique_id=238035591]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, -68.82195)
+
 [node name="Room5" type="Node3D" parent="NavigationRegion3D/RoomManager" unique_id=1391249632]
 
 [node name="Wall11" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room5" unique_id=1519486670]
@@ -387,7 +412,3 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.9846463, 0.49032164, -91.24
 
 [node name="SpawnPoint" type="Marker3D" parent="NavigationRegion3D/RoomManager/Room5" unique_id=861124399]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.869, 1, -97.864)
-
-[node name="Label3D" type="Label3D" parent="." unique_id=364774868]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.698592, 3.7933989, 3.4622526)
-text = "Where the teleport dashboard will be"

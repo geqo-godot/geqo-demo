@@ -1,0 +1,31 @@
+[gd_scene format=3 uid="uid://c7y0jkvs5gu4q"]
+
+[ext_resource type="Material" uid="uid://cfukwd7txwlly" path="res://assets/textures/green_greybox_material.tres" id="1_rmgj8"]
+[ext_resource type="Script" uid="uid://brdei5n38xn82" path="res://entities/teleport_button/teleport_button.gd" id="1_t67go"]
+[ext_resource type="Script" uid="uid://ce35bbfwwhx3m" path="res://entities/components/interaction_component.gd" id="2_t67go"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_2cqfq"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_2cqfq"]
+material = ExtResource("1_rmgj8")
+
+[node name="TeleportButton" type="StaticBody3D" unique_id=1363840293]
+script = ExtResource("1_t67go")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=2104133467]
+shape = SubResource("SphereShape3D_2cqfq")
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=774855365]
+mesh = SubResource("SphereMesh_2cqfq")
+
+[node name="InteractionComponent" type="Node" parent="." unique_id=1222414643 node_paths=PackedStringArray("mesh")]
+script = ExtResource("2_t67go")
+mesh = NodePath("../MeshInstance3D")
+metadata/_custom_type_script = "uid://ce35bbfwwhx3m"
+
+[node name="Label3D" type="Label3D" parent="." unique_id=815554087]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8252711, 0)
+billboard = 1
+text = "Teleport button"
+
+[connection signal="player_interacted" from="InteractionComponent" to="." method="_on_interaction_component_player_interacted"]

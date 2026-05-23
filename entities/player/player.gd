@@ -15,9 +15,12 @@ var _look: Vector2 = Vector2.ZERO
 @onready var horizontal_pivot: Node3D = $HorizontalPivot
 @onready var vertical_pivot: Node3D = $HorizontalPivot/VerticalPivot
 @onready var body: Node3D = $Body
+var start_position: Vector3
+
 
 func _ready() -> void:
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	start_position = global_position
 
 func _physics_process(delta: float) -> void:
 	frame_camera_rotation()
@@ -32,6 +35,9 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 
 func _unhandled_input(event: InputEvent) -> void:
+	if event.is_action_pressed("home_button"):
+		# Go back to spawn position
+		global_position = start_position
 	if event.is_action_pressed(&"ui_cancel"):
 		if Input.mouse_mode == Input.MOUSE_MODE_CAPTURED:
 			Input.mouse_mode = Input.MOUSE_MODE_VISIBLE

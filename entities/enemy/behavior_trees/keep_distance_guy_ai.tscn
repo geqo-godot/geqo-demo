@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://e3jj75x12p4o"]
 
-[ext_resource type="Script" uid="uid://ddfo8xbm1exa3" path="res://entities/enemy/behavior_trees/scared_guy_ai.gd" id="1_0pjn4"]
+[ext_resource type="Script" uid="uid://ddfo8xbm1exa3" path="res://entities/enemy/behavior_trees/env_query_tree.gd" id="1_0pjn4"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="2_jj8nx"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="3_kj1bb"]
 [ext_resource type="Script" uid="uid://crkjak4kyv56m" path="res://addons/beehave/nodes/decorators/inverter.gd" id="4_krts3"]
@@ -12,7 +12,7 @@
 
 [node name="KeepDistanceGuyAI" type="Node" unique_id=555088902 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_0pjn4")
-blackboard = NodePath("@Node@39629")
+blackboard = NodePath("@Node@22952")
 actor = NodePath("..")
 metadata/_custom_type_script = "uid://bb0t2ovl7wifo"
 

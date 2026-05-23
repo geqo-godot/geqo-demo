@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://o51ysogndjt6"]
 
-[ext_resource type="Script" uid="uid://ddfo8xbm1exa3" path="res://entities/enemy/behavior_trees/scared_guy_ai.gd" id="1_4qjse"]
+[ext_resource type="Script" uid="uid://ddfo8xbm1exa3" path="res://entities/enemy/behavior_trees/env_query_tree.gd" id="1_4qjse"]
 [ext_resource type="Script" uid="uid://cg016dbe7gs1x" path="res://addons/beehave/nodes/composites/sequence.gd" id="2_csssg"]
 [ext_resource type="PackedScene" uid="uid://dvtu1jogx4xrp" path="res://entities/enemy/conditions/spotted_player_condition.tscn" id="2_ds1ol"]
 [ext_resource type="Script" uid="uid://8hn4kne15ac5" path="res://addons/beehave/nodes/composites/selector.gd" id="2_pnl16"]
