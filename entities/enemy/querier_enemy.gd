@@ -38,8 +38,8 @@ func _physics_process(delta: float) -> void:
 
 func move_to_target(target: Vector3):
 	var direction: Vector3 = (self.global_position.direction_to(target))
-	velocity.x = direction.x * SPEED
-	velocity.z = direction.z * SPEED
+	velocity.x = lerp(velocity.x, direction.x * SPEED, 0.3)
+	velocity.z = lerp(velocity.z, direction.z * SPEED, 0.3)
 
 func idle():
 	velocity.x = lerp(velocity.x, 0.0, 0.25)

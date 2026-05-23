@@ -5,9 +5,12 @@
 [ext_resource type="Script" uid="uid://ce35bbfwwhx3m" path="res://entities/components/interaction_component.gd" id="2_t67go"]
 
 [sub_resource type="SphereShape3D" id="SphereShape3D_2cqfq"]
+radius = 1.0
 
 [sub_resource type="SphereMesh" id="SphereMesh_2cqfq"]
 material = ExtResource("1_rmgj8")
+radius = 1.0
+height = 2.0
 
 [node name="TeleportButton" type="StaticBody3D" unique_id=1363840293]
 script = ExtResource("1_t67go")
@@ -24,7 +27,7 @@ mesh = NodePath("../MeshInstance3D")
 metadata/_custom_type_script = "uid://ce35bbfwwhx3m"
 
 [node name="Label3D" type="Label3D" parent="." unique_id=815554087]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8252711, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2988384, 0)
 billboard = 1
 text = "Teleport button"
 

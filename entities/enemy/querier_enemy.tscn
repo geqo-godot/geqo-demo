@@ -14,6 +14,7 @@ script = ExtResource("1_7qv70")
 shape = SubResource("CapsuleShape3D_fj7yv")
 
 [node name="NavigationAgent3D" type="NavigationAgent3D" parent="." unique_id=548858013]
+debug_enabled = true
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="." unique_id=1919346802]
 mesh = SubResource("CapsuleMesh_036b0")
