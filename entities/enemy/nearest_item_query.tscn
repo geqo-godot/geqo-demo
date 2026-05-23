@@ -30,5 +30,3 @@ score_curve = SubResource("Curve_1lugk")
 distance_to = NodePath("../../ContextPlayer")
 test_purpose = 2
 score_curve = SubResource("Curve_6mssk")
-score_clamp_max_type = 1
-score_clamp_max = 5.0
