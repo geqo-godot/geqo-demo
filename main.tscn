@@ -384,16 +384,6 @@ use_collision = true
 size = Vector3(26, 10, 1)
 material = ExtResource("1_ig7tw")
 
-[node name="DoorHole" type="CSGBox3D" parent="NavigationRegion3D/RoomManager/Room5/Wall10" unique_id=1407393566]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2.5, 0)
-operation = 2
-use_collision = true
-size = Vector3(6, 5, 1)
-material = ExtResource("1_ig7tw")
-
-[node name="Door4" parent="NavigationRegion3D/RoomManager/Room5" unique_id=355245909 instance=ExtResource("3_1bvp3")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -106)
-
 [node name="Wedge" type="CSGCombiner3D" parent="NavigationRegion3D/RoomManager/Room5" unique_id=1912694026]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0.5, -98)
 material_overlay = ExtResource("12_ycdy4")
@@ -413,6 +403,12 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8.013209, 5.9403596, -98.0236
 
 [node name="HealthPack2" parent="NavigationRegion3D/RoomManager/Room5" unique_id=914691092 instance=ExtResource("4_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.192401, 3.5280533, -98.02361)
+
+[node name="HealthPack5" parent="NavigationRegion3D/RoomManager/Room5" unique_id=450927919 instance=ExtResource("4_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.72905, 3.5280533, -102.0767)
+
+[node name="HealthPack6" parent="NavigationRegion3D/RoomManager/Room5" unique_id=501525332 instance=ExtResource("4_5vw27")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.30880356, 3.5280533, -102.0767)
 
 [node name="HealthPack3" parent="NavigationRegion3D/RoomManager/Room5" unique_id=743755367 instance=ExtResource("4_5vw27")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7148633, 4.74818, -92.52325)

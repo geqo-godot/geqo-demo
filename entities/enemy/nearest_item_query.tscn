@@ -5,7 +5,7 @@ _data = [Vector2(0, 1), 0.0, -1.0, 0, 1, Vector2(1, 0), -1.0, 0.0, 1, 0]
 point_count = 2
 
 [sub_resource type="Curve" id="Curve_6mssk"]
-_data = [Vector2(0, 0), 0.0, 2.0, 0, 0, Vector2(1, 1), -1.3204728e-06, 0.0, 0, 0]
+_data = [Vector2(0, 0), 0.0, 1.0, 0, 1, Vector2(1, 1), 1.0, 0.0, 1, 0]
 point_count = 2
 
 [node name="NearestItemQuery" type="EnvironmentQuery3D" unique_id=579007562]
@@ -26,8 +26,9 @@ distance_to = NodePath("../../ContextQuerier3D")
 test_purpose = 2
 score_curve = SubResource("Curve_1lugk")
 
-[node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorInGroup3D" unique_id=1868755299 node_paths=PackedStringArray("distance_to")]
+[node name="TestDistanceToPlayer" type="TestDistanceTo3D" parent="GeneratorInGroup3D" unique_id=1421973952 node_paths=PackedStringArray("distance_to")]
 distance_to = NodePath("../../ContextPlayer")
 test_purpose = 2
-filter_min = 3.0
 score_curve = SubResource("Curve_6mssk")
+score_clamp_max_type = 1
+score_clamp_max = 5.0

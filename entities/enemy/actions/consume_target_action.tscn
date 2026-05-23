@@ -1,0 +1,7 @@
+[gd_scene format=3 uid="uid://di14mhjfenkq7"]
+
+[ext_resource type="Script" uid="uid://c4hadyxih6xa4" path="res://entities/enemy/actions/consume_target_action.gd" id="1_io0uc"]
+
+[node name="ConsumeTargetAction" type="Node" unique_id=1374225068]
+script = ExtResource("1_io0uc")
+metadata/_custom_type_script = "uid://cv74jjdrwevpr"

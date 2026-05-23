@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://we22430vcb44" path="res://addons/beehave/nodes/decorators/time_limiter.gd" id="6_lvm1f"]
 [ext_resource type="PackedScene" uid="uid://oyc6sddaqt8u" path="res://entities/enemy/actions/approach_target_action.tscn" id="7_magkc"]
 [ext_resource type="PackedScene" uid="uid://emnalx085sn8" path="res://entities/enemy/actions/idle_action.tscn" id="8_wah3f"]
+[ext_resource type="PackedScene" uid="uid://di14mhjfenkq7" path="res://entities/enemy/actions/consume_target_action.tscn" id="9_di23o"]
 
 [node name="HungryGuyAI" type="Node" unique_id=555088902 node_paths=PackedStringArray("blackboard", "actor")]
 script = ExtResource("1_mhuy1")
@@ -40,5 +41,7 @@ metadata/_custom_type_script = "uid://we22430vcb44"
 [node name="ApproachTargetAction" parent="MainSelector/GetHealth/TimeLimiterDecorator" unique_id=1641145631 instance=ExtResource("7_magkc")]
 min_range = 2.5
 target_type = 1
+
+[node name="ConsumeTargetAction" parent="MainSelector/GetHealth" unique_id=1374225068 instance=ExtResource("9_di23o")]
 
 [node name="IdleAction" parent="MainSelector" unique_id=554147544 instance=ExtResource("8_wah3f")]
