@@ -193,22 +193,22 @@ material = ExtResource("1_ig7tw")
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.5, -10)
 
 [node name="Room2Teleporter" parent="NavigationRegion3D/RoomManager/Room1" unique_id=1363840293 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, 8.710244)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.344545, 1.4061172, 8.710244)
 teleport_message = "Enemy that hides from you"
 teleport_target = NodePath("../../Room2/TeleportPoint")
 
 [node name="Room3Teleporter" parent="NavigationRegion3D/RoomManager/Room1" unique_id=992092818 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, 4.6728377)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.344545, 1.4061172, 4.6728377)
 teleport_message = "Enemy that strafes around you"
 teleport_target = NodePath("../../Room3/TeleportPoint")
 
 [node name="Room4Teleporter" parent="NavigationRegion3D/RoomManager/Room1" unique_id=941992456 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, 0.35962486)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.344545, 1.4061172, 0.35962486)
 teleport_message = "Enemy that keeps it's distance"
 teleport_target = NodePath("../../Room4/TeleportPoint")
 
 [node name="Room4Teleporter2" parent="NavigationRegion3D/RoomManager/Room1" unique_id=1917314265 node_paths=PackedStringArray("teleport_target") instance=ExtResource("14_yaehf")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -8.344545, 1.4061172, -4.4993887)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -8.344545, 1.4061172, -4.4993887)
 teleport_message = "Enemy that finds health if damaged"
 teleport_target = NodePath("../../Room5/TeleportPoint")
 

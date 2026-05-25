@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://dahvby0kgailt" path="res://entities/player/player.gd" id="1_symyc"]
 [ext_resource type="PackedScene" uid="uid://bfejxpbdk5q88" path="res://entities/player/arm_camera.tscn" id="2_abrql"]
+[ext_resource type="PackedScene" uid="uid://b5j286kslfcut" path="res://assets/models/godette_low_poly2.glb" id="2_bls4j"]
 [ext_resource type="Script" uid="uid://uv2tyhjel5m" path="res://entities/player/interaction_raycast.gd" id="3_sglur"]
 
 [sub_resource type="CapsuleShape3D" id="CapsuleShape3D_abrql"]
@@ -20,7 +21,11 @@ shape = SubResource("CapsuleShape3D_abrql")
 
 [node name="Body" type="Node3D" parent="." unique_id=1236074763]
 
+[node name="godette_low_poly2" parent="Body" unique_id=813091651 instance=ExtResource("2_bls4j")]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.992205, 0)
+
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1010177936]
+visible = false
 mesh = SubResource("CapsuleMesh_symyc")
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body/MeshInstance3D" unique_id=2058732345]
