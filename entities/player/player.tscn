@@ -22,7 +22,7 @@ shape = SubResource("CapsuleShape3D_abrql")
 [node name="Body" type="Node3D" parent="." unique_id=1236074763]
 
 [node name="godette_low_poly2" parent="Body" unique_id=813091651 instance=ExtResource("2_bls4j")]
-transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -0.992205, 0)
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, -1.0044744, 0)
 
 [node name="MeshInstance3D" type="MeshInstance3D" parent="Body" unique_id=1010177936]
 visible = false
