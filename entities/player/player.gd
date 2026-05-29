@@ -15,10 +15,13 @@ var _look: Vector2 = Vector2.ZERO
 @onready var horizontal_pivot: Node3D = $HorizontalPivot
 @onready var vertical_pivot: Node3D = $HorizontalPivot/VerticalPivot
 @onready var body: Node3D = $Body
+@onready var anim_tree: AnimationTree = $AnimationTree
+var anim_state: AnimationNodeStateMachinePlayback
 var start_position: Vector3
 
 
 func _ready() -> void:
+	anim_state = anim_tree["parameters/playback"]
 	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
 	start_position = global_position
 
@@ -76,7 +79,11 @@ func look_toward_direction(direction: Vector3, delta: float) -> void:
 func handle_idle_physics_frame(delta: float, direction: Vector3) -> void:
 	velocity.x = exponential_decay(velocity.x, direction.x * SPEED, DECAY, delta)
 	velocity.z = exponential_decay(velocity.z, direction.z * SPEED, DECAY, delta)
+	anim_state.travel("idle")
+	
+	anim_tree["parameters/move/blend_position"] = velocity.length() / SPEED
 	if direction:
+		anim_state.travel("move")
 		look_toward_direction(direction, delta)
 
 func exponential_decay(a: float, b: float, decay: float, delta: float) -> float:

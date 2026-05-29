@@ -2,20 +2,20 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://tf5o2v43pmin"
-path.s3tc="res://.godot/imported/godette_low_poly2_GodetteTexture.png-ccb3b458e4006fc628628418f2be9265.s3tc.ctex"
+uid="uid://dofgcgvtng4mq"
+path.s3tc="res://.godot/imported/godette_low_poly_GodotBag.png-a90e91e42fec93480d57bea31a5a4159.s3tc.ctex"
 metadata={
 "imported_formats": ["s3tc_bptc"],
 "vram_texture": true
 }
 generator_parameters={
-"md5": "7f68d7a60905b46458630eb9c541c214"
+"md5": "f446da1ae46fc5def8b225c041fccbfb"
 }
 
 [deps]
 
-source_file="res://assets/models/godette_low_poly2_GodetteTexture.png"
-dest_files=["res://.godot/imported/godette_low_poly2_GodetteTexture.png-ccb3b458e4006fc628628418f2be9265.s3tc.ctex"]
+source_file="res://assets/models/godette_low_poly_GodotBag.png"
+dest_files=["res://.godot/imported/godette_low_poly_GodotBag.png-a90e91e42fec93480d57bea31a5a4159.s3tc.ctex"]
 
 [params]
 

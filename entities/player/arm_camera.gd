@@ -14,7 +14,7 @@ func _input(event: InputEvent) -> void:
 		if event.is_pressed():
 			# zoom in
 			if event.button_index == MOUSE_BUTTON_WHEEL_UP:
-				spring_length = clamp(spring_length - 1, 3, 15)
+				spring_length = clamp(spring_length - 1, 2, 15)
 			# zoom out
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
-				spring_length = clamp(spring_length + 1, 3, 15)
+				spring_length = clamp(spring_length + 1, 2, 15)
