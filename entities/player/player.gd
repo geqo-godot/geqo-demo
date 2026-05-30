@@ -32,6 +32,7 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+		anim_tree["parameters/jump/blend_position"] = velocity.y
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = JUMP_VELOCITY
@@ -79,12 +80,17 @@ func look_toward_direction(direction: Vector3, delta: float) -> void:
 func handle_idle_physics_frame(delta: float, direction: Vector3) -> void:
 	velocity.x = exponential_decay(velocity.x, direction.x * SPEED, DECAY, delta)
 	velocity.z = exponential_decay(velocity.z, direction.z * SPEED, DECAY, delta)
-	anim_state.travel("idle")
 	
 	anim_tree["parameters/move/blend_position"] = velocity.length() / SPEED
-	if direction:
+	if not is_on_floor():
+		anim_state.travel("jump")
+		if direction:
+			look_toward_direction(direction, delta)
+	elif direction:
 		anim_state.travel("move")
 		look_toward_direction(direction, delta)
+	else:
+		anim_state.travel("idle")
 
 func exponential_decay(a: float, b: float, decay: float, delta: float) -> float:
 	return b + (a - b) * exp(-decay * delta)
