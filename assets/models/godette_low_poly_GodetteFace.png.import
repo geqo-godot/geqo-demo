@@ -3,23 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://d4iqr64qckxou"
-path.s3tc="res://.godot/imported/godette_low_poly_GodetteFace.png-5c8d30df8772c018cceecb2e8e3773a6.s3tc.ctex"
+path="res://.godot/imported/godette_low_poly_GodetteFace.png-5c8d30df8772c018cceecb2e8e3773a6.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "ee2f633e1b0acd11755779234691fc87"
+"md5": "6ba5d9968a5ec2b4abfe4404999b9b56"
 }
 
 [deps]
 
 source_file="res://assets/models/godette_low_poly_GodetteFace.png"
-dest_files=["res://.godot/imported/godette_low_poly_GodetteFace.png-5c8d30df8772c018cceecb2e8e3773a6.s3tc.ctex"]
+dest_files=["res://.godot/imported/godette_low_poly_GodetteFace.png-5c8d30df8772c018cceecb2e8e3773a6.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
@@ -27,7 +26,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

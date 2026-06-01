@@ -3,23 +3,22 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://cjs6ho0yvnioy"
-path.s3tc="res://.godot/imported/godette_low_poly_GodetteTexture.png-2cfd0593025b1f0efd33b56c39498b02.s3tc.ctex"
+path="res://.godot/imported/godette_low_poly_GodetteTexture.png-2cfd0593025b1f0efd33b56c39498b02.ctex"
 metadata={
-"imported_formats": ["s3tc_bptc"],
-"vram_texture": true
+"vram_texture": false
 }
 generator_parameters={
-"md5": "0aba94719674cd7fb57a5e0a47141256"
+"md5": "3447bd13b8a18398cbdaa76f434ecc68"
 }
 
 [deps]
 
 source_file="res://assets/models/godette_low_poly_GodetteTexture.png"
-dest_files=["res://.godot/imported/godette_low_poly_GodetteTexture.png-2cfd0593025b1f0efd33b56c39498b02.s3tc.ctex"]
+dest_files=["res://.godot/imported/godette_low_poly_GodetteTexture.png-2cfd0593025b1f0efd33b56c39498b02.ctex"]
 
 [params]
 
-compress/mode=2
+compress/mode=0
 compress/high_quality=false
 compress/lossy_quality=0.7
 compress/uastc_level=0
